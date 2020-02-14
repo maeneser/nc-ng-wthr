@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cities</ion-title>
+    <!-- <ion-buttons slot="end"> -->
+      <ion-button slot="end" color="danger" shape="round" size="small" style="margin-right: 5%;" (click)="dismiss(null)">Close</ion-button>
+    <!-- </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="cities | async as cities; else skeleton">
+    <ion-item *ngFor="let city of cities" (click)="dismiss(city.id)">
+      <ion-avatar slot="start">
+        <img src="https://www.countryflags.io/{{city.country}}/flat/64.png">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{city.name}}</h2>
+        <p>{{city.country}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ng-template #skeleton>
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h2><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></h2>
+          <p><ion-skeleton-text animated style="width: 10%"></ion-skeleton-text></p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-template>
+</ion-content>

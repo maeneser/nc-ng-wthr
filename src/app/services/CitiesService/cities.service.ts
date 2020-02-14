@@ -8,7 +8,7 @@ import { City } from 'src/app/models/city';
 @Injectable({
   providedIn: 'root'
 })
-export class CitiesServiceService {
+export class CitiesService {
   private citiesJson = 'assets/city.list.json';
   private cities$ = new Subject<Array<City>>();
 
@@ -16,15 +16,13 @@ export class CitiesServiceService {
 
   findCity(city: string) {
     let cities = new Array<City>();
-    if (city.length > 3) {
-      this.http.get<Array<City>>(this.citiesJson).subscribe(
-        (data: Array<City>) => {
-          for (let i = 0; i < data.length; i++)
-            if (data[i].name.startsWith(city)) cities.push(data[i]);
-          this.cities$.next(cities);
-        }
-      );
-    } else this.cities$.next(cities);
+    this.http.get<Array<City>>(this.citiesJson).subscribe(
+      (data: Array<City>) => {
+        for (let i = 0; i < data.length; i++)
+          if (data[i].name.startsWith(city)) cities.push(data[i]);
+        this.cities$.next(cities);
+      }
+    );
   }
 
   getCities(): Observable<Array<City>> {

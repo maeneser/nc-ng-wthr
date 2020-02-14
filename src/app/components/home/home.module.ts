@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { ModalListCitiesPage } from './search/modalListCities/modal-list-cities.page';
 import { SearchComponent } from './search/search.component';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SearchComponent } from './search/search.component';
       }
     ])
   ],
-  declarations: [HomePage, SearchComponent]
+  declarations: [HomePage, ModalListCitiesPage, SearchComponent],
+  entryComponents: [ModalListCitiesPage]
 })
 export class HomePageModule {}
