@@ -1,4 +1,4 @@
-import { Coord } from './coord';
+import { Coord } from '../General/coord';
 import { Weather } from './weather';
 import { Main } from './main';
 import { Wind } from './wind';
