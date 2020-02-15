@@ -1,9 +1,4 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Nc-Ng-Wthr</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <app-search (selectedCity)="addCity($event)"></app-search>
   <app-weather *ngFor="let city of cities" [city]="city"></app-weather>
 </ion-content>
