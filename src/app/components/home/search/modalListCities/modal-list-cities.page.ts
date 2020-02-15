@@ -17,16 +17,13 @@ import { CitiesService } from '../../../../services/CitiesService/cities.service
 export class ModalListCitiesPage implements OnInit {
   @Input() modalController: ModalController;
   @Input() city: string;
-  private cities: Observable<Array<City>>;
+  private cities$: Observable<Array<City>>;
 
   constructor(private citiesService: CitiesService) { }
 
   ngOnInit() {
-    if (this.city.length != 0) {
-      this.cities = this.citiesService.getCities().pipe(take(1));
-      this.citiesService.findCity(this.city[0].toUpperCase() + this.city.substr(1));
-    }
-    // else this.dismiss(null);
+    this.cities$ = this.citiesService.getCities().pipe(take(1));
+    this.citiesService.findCity(this.city[0].toUpperCase() + this.city.substr(1));
   }
 
   dismiss(city: number) {

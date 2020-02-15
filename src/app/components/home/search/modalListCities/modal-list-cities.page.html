@@ -1,14 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Cities</ion-title>
-    <!-- <ion-buttons slot="end"> -->
-      <ion-button slot="end" color="danger" shape="round" size="small" style="margin-right: 5%;" (click)="dismiss(null)">Close</ion-button>
-    <!-- </ion-buttons> -->
+    <ion-button slot="end" color="danger" shape="round" size="small" style="margin-right: 5%;" (click)="dismiss(null)">Close</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="cities | async as cities; else skeleton">
+  <ion-list *ngIf="cities$ | async as cities; else skeleton">
     <ion-item *ngFor="let city of cities" (click)="dismiss(city.id)">
       <ion-avatar slot="start">
         <img src="https://www.countryflags.io/{{city.country}}/flat/64.png">

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { ModalListCitiesPage } from './search/modalListCities/modal-list-cities.page';
 import { SearchComponent } from './search/search.component';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { SearchComponent } from './search/search.component';
       }
     ])
   ],
-  declarations: [HomePage, ModalListCitiesPage, SearchComponent],
+  declarations: [HomePage, ModalListCitiesPage, SearchComponent, WeatherComponent],
   entryComponents: [ModalListCitiesPage]
 })
 export class HomePageModule {}

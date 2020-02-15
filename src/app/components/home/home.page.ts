@@ -1,13 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
-// Models
-import { OpenWeather } from 'src/app/models/OpenWeather/open-weather';
-
-// Services
-import { OpenWeatherService } from '../../services/OpenWeatherService/open-weather.service';
-import { City } from 'src/app/models/city';
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,14 +9,9 @@ import { City } from 'src/app/models/city';
 export class HomePage implements OnInit {
   private cities = new Array<string>();
 
-  constructor(private openWeatherService: OpenWeatherService, public toastController: ToastController) {}
+  constructor(public toastController: ToastController) {}
 
-  ngOnInit() {
-    this.openWeatherService.getWeatherById(707860).subscribe(
-      (data: OpenWeather) => console.log(data),
-      (err) => console.log(err)
-    );
-  }
+  ngOnInit() {}
 
   async addCity(city: string) {
     let i = this.cities.indexOf(city);
@@ -35,6 +23,5 @@ export class HomePage implements OnInit {
       });
       toast.present();
     }
-    console.log(this.cities);
   }
 }
