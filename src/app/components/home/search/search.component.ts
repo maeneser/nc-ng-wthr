@@ -15,18 +15,16 @@ export class SearchComponent implements OnInit {
   ngOnInit() {}
 
   async presentModal(city: string) {
-    if (city.length != 0) {
-      let modal = await this.modalController.create({
-        component: ModalListCitiesPage,
-        componentProps: {
-          'modalController': this.modalController,
-          'city': city
-        }
-      });
-      await modal.present();
-      let { data } = await modal.onWillDismiss();
-      this.selectedCity.emit(data.city);
-    } else console.log("No data");
+    let modal = await this.modalController.create({
+      component: ModalListCitiesPage,
+      componentProps: {
+        'modalController': this.modalController,
+        'city': city
+      }
+    });
+    await modal.present();
+    let { data } = await modal.onWillDismiss();
+    if (data != null) this.selectedCity.emit(data.city);
   }
 
 }

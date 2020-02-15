@@ -7,6 +7,7 @@
 
 <ion-content>
   <ion-list *ngIf="cities$ | async as cities; else skeleton">
+    <p *ngIf="cities.length == 0" style="text-align: center;">Oops!</p>
     <ion-item *ngFor="let city of cities" (click)="dismiss(city.id)">
       <ion-avatar slot="start">
         <img src="https://www.countryflags.io/{{city.country}}/flat/64.png">
