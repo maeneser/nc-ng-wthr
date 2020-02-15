@@ -5,7 +5,7 @@
 
   <ion-card-content>
     <ion-input #city placeholder="City name"></ion-input>
-    <ion-button (click)="presentModal(city.value)">
+    <ion-button [disabled]="city.value != '' ? false : true" (click)="presentModal(city.value); city.value = ''">
       <ion-icon name="search"></ion-icon>
     </ion-button>
   </ion-card-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalListCitiesPage } from './modalListCities/modal-list-cities.page';
 
@@ -8,6 +8,7 @@ import { ModalListCitiesPage } from './modalListCities/modal-list-cities.page';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  @Output() selectedCity = new EventEmitter<number>();
 
   constructor(public modalController: ModalController) { }
 
@@ -24,7 +25,7 @@ export class SearchComponent implements OnInit {
       });
       await modal.present();
       let { data } = await modal.onWillDismiss();
-      console.log(data);
+      this.selectedCity.emit(data.city);
     } else console.log("No data");
   }
 
