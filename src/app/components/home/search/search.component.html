@@ -1,11 +1,11 @@
-<ion-card>
+<ion-card color="light">
   <ion-card-header>
     <ion-card-title style="display: inline;">Search</ion-card-title>
   </ion-card-header>
 
   <ion-card-content>
     <ion-input #city placeholder="City name"></ion-input>
-    <ion-button [disabled]="city.value != '' ? false : true" (click)="presentModal(city.value); city.value = ''">
+    <ion-button color="success" [disabled]="city.value != '' ? false : true" (click)="presentModal(city.value); city.value = ''">
       <ion-icon name="search"></ion-icon>
     </ion-button>
   </ion-card-content>

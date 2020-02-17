@@ -1,21 +1,27 @@
-<ion-card *ngIf="loaded" [ngClass]="openWeather.weather[0].main">
-  <ion-card-header>
-    <ion-card-title>{{openWeather.name}}</ion-card-title>
-    <img src="https://www.countryflags.io/{{openWeather.sys.country}}/flat/64.png" height="50" width="50">
-  </ion-card-header>
-
-  <ion-card-content>
-    <div [ngSwitch]="openWeather.weather[0].main">
-      <ion-icon *ngSwitchCase="'Clear'" name="sunny-outline"></ion-icon>
-      <ion-icon *ngSwitchCase="'Clouds'" name="cloud-outline"></ion-icon>
-      <ion-icon *ngSwitchCase="'Mist'" name="cloud-download-outline"></ion-icon>
-      <ion-icon *ngSwitchCase="'Rain'" name="rainy-outline"></ion-icon>
-      <ion-icon *ngSwitchCase="'Smoke'" name="cloud-circle-outline"></ion-icon>
-      <ion-icon *ngSwitchCase="'Snow'" name="snow-outline"></ion-icon>
-      <ion-icon *ngSwitchDefault name="image-outline"></ion-icon>
-    </div>
-    <p>Actual {{openWeather.main.temp}}° but feels like {{openWeather.main.feels_like}}°</p>
-    <p>{{openWeather.weather[0].description | titlecase}}</p>
-    <p>Min: {{openWeather.main.temp_min}}° | Max: {{openWeather.main.temp_max}}°</p>
-  </ion-card-content>
+<ion-card *ngIf="loaded">
+  <ion-item-sliding>
+    <ion-item>
+      <ion-card-header>
+        <ion-card-title>{{openWeather.name}}</ion-card-title>
+        <img src="https://www.countryflags.io/{{openWeather.sys.country}}/flat/64.png" height="50" width="50">
+      </ion-card-header>
+      <ion-card-content>
+        <div [ngSwitch]="openWeather.weather[0].main">
+          <ion-icon *ngSwitchCase="'Clear'" name="sunny-outline"></ion-icon>
+          <ion-icon *ngSwitchCase="'Clouds'" name="cloud-outline"></ion-icon>
+          <ion-icon *ngSwitchCase="'Mist'" name="cloud-download-outline"></ion-icon>
+          <ion-icon *ngSwitchCase="'Rain'" name="rainy-outline"></ion-icon>
+          <ion-icon *ngSwitchCase="'Smoke'" name="cloud-circle-outline"></ion-icon>
+          <ion-icon *ngSwitchCase="'Snow'" name="snow-outline"></ion-icon>
+          <ion-icon *ngSwitchDefault name="image-outline"></ion-icon>
+        </div>
+        <p>Actual {{openWeather.main.temp}}° but feels like {{openWeather.main.feels_like}}°</p>
+        <p>{{openWeather.weather[0].description | titlecase}}</p>
+        <p>Min: {{openWeather.main.temp_min}}° | Max: {{openWeather.main.temp_max}}°</p>
+      </ion-card-content>
+    </ion-item>
+    <ion-item-options side="end">
+      <ion-item-option color="danger" (click)="delete()">Delete</ion-item-option>
+    </ion-item-options>
+  </ion-item-sliding>
 </ion-card>

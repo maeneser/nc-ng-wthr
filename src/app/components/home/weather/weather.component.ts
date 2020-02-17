@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 
 // Models
@@ -14,6 +14,7 @@ import { OpenWeatherService } from '../../../services/OpenWeatherService/open-we
 })
 export class WeatherComponent implements OnInit {
   @Input() city: number;
+  @Output() deleteCity = new EventEmitter<number>();
   private openWeather: OpenWeather;
   private loaded = false;
 
@@ -33,6 +34,10 @@ export class WeatherComponent implements OnInit {
         toast.present();
       }
     );
+  }
+
+  delete() {
+    this.deleteCity.emit(this.city);
   }
 
 }
